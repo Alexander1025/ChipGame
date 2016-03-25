@@ -519,17 +519,17 @@ grade.onclick = function (){
 		}
 	}
 	
-	http = new XMLHttpRequest();
-	var url = "num.php";
-	http.open("POST", url, true);
-	http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	http.send("grades="+grades);		
-	http.onreadystatechange = function() {
-		// console.log(1);
-		if(http.readyState == 4 && http.status == 200) {
-			console.log(http.responseText);	
-
-		}
-	}
+	//http = new XMLHttpRequest();
+	//var url = "num.php";
+	//http.open("POST", url, true);
+	//http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	//http.send("grades="+grades);		
+	//http.onreadystatechange = function() {
+	//	// console.log(1);
+	//	if(http.readyState == 4 && http.status == 200) {
+	//		console.log(http.responseText);	
+        //
+	//	}
+	//}
 	grade.innerHTML = grades; 
 }
