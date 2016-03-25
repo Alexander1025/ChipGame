@@ -40,18 +40,21 @@ for(var i = 1 ; i <= 64 ; i ++){
 		if(this.isClick == false){
 			// getPosition(this.index);
 			console.log(getPosition(this.index));
-			var aa = nexts[0].style.background;
-			var bb ;
-			bb = aa.slice(aa.indexOf("chip")+10,aa.indexOf("chip")+15);
-			var cc = parseInt(bb);
-			chips[this.index-1].style.background = "url(images/chip1/chip"+ cc +".png) 4px 4px no-repeat";
+			var aa = nexts[0].chipNum;
+			console.log(aa);
+			// var bb ;
+			// bb = aa.slice(aa.indexOf("chip")+10,aa.indexOf("chip")+15);
+			// var cc = parseInt(bb);
+			chips[this.index-1].chipNumber = aa ;
+			chips[this.index-1].style.background = "url(images/chip1/chip"+ aa +".png) 4px 4px no-repeat";
 			nextwrap.removeChild(nexts[0]);
 			var nextList = document.createElement("div");
 			nextList.style.width = "50px";
 			nextList.style.height = "50px";
 			nextList.style.float = "left";
+			nextList.chipNum = randomNext();
 			// nextList.style.background = "url(images/chip1/chip1.png) 4px 4px no-repeat";
-			nextList.style.background = "url(images/chip1/chip"+ randomNext() +".png) 4px 4px no-repeat";
+			nextList.style.background = "url(images/chip1/chip"+ nextList.chipNum +".png) 4px 4px no-repeat";
 			// nextList.style.background = "url(images/chip1/chip"+ 1 +".png) 4px 4px no-repeat";
 			nextVessel.appendChild(nextList);
 			// nextwrap.appendChild();
@@ -65,10 +68,11 @@ for(var i = 1 ; i <= 64 ; i ++){
 				// }
 				if((this.index-1 > 8 && this.index-1 <= 14) || (this.index-1 > 16 && this.index-1 <= 22) || (this.index-1 > 24 && this.index-1 <= 30) || (this.index-1 > 32 && this.index-1 <= 38) || (this.index-1 > 40 && this.index-1 <= 46) || (this.index-1 > 48 && this.index-1 <= 54)){
 					// console.log("8个！");
-					var a8 = chips[this.index-1].style.background;
-					var b8 ;
-					b8 = a8.slice(a8.indexOf("chip")+10,a8.indexOf("chip")+15);
-					var c8 = parseInt(b8);
+					// var a8 = chips[this.index-1].style.background;
+					// var b8 ;
+					// b8 = a8.slice(a8.indexOf("chip")+10,a8.indexOf("chip")+15);
+					// var c8 = parseInt(b8);
+					var c8 = chips[this.index-1].chipNumber;
 					judge((this.index-1)-9,c8);
 					judge((this.index-1)-8,c8);
 					judge((this.index-1)-7,c8);
@@ -82,16 +86,17 @@ for(var i = 1 ; i <= 64 ; i ++){
 							del(warehouseArr[d8]);
 						}
 						warehouseArr = [] ;
+						chips[this.index-1].chipNumber = chips[this.index-1].chipNumber + 1 ;
 						chips[this.index-1].style.background = "url(images/chip1/chip"+ (c8 + 1) +".png) 4px 4px no-repeat";
 					}else{
 						warehouseArr = [] ;
 					}
 				}else if((this.index-1 > 0 && this.index-1 <= 6)){
 					// console.log("上6个！");
-					var a8 = chips[this.index-1].style.background;
-					var b8 ;
-					b8 = a8.slice(a8.indexOf("chip")+10,a8.indexOf("chip")+15);
-					var c8 = parseInt(b8);
+					// var a8 = chips[this.index-1].style.background;
+					// var b8 ;
+					// b8 = a8.slice(a8.indexOf("chip")+10,a8.indexOf("chip")+15);
+					var c8 = chips[this.index-1].chipNumber;
 					judge((this.index-1)-1,c8);
 					judge((this.index-1)+1,c8);
 					judge((this.index-1)+7,c8);
@@ -102,16 +107,17 @@ for(var i = 1 ; i <= 64 ; i ++){
 							del(warehouseArr[d8]);
 						}
 						warehouseArr = [] ;
+						chips[this.index-1].chipNumber = chips[this.index-1].chipNumber + 1 ;
 						chips[this.index-1].style.background = "url(images/chip1/chip"+ (c8 + 1) +".png) 4px 4px no-repeat";
 					}else{
 						warehouseArr = [] ;
 					}
 				}else if((this.index-1 > 56 && this.index-1 <= 62)){
 					// console.log("下6个！");
-					var a8 = chips[this.index-1].style.background;
-					var b8 ;
-					b8 = a8.slice(a8.indexOf("chip")+10,a8.indexOf("chip")+15);
-					var c8 = parseInt(b8);
+					// var a8 = chips[this.index-1].style.background;
+					// var b8 ;
+					// b8 = a8.slice(a8.indexOf("chip")+10,a8.indexOf("chip")+15);
+					var c8 = chips[this.index-1].chipNumber;
 					judge((this.index-1)-1,c8);
 					judge((this.index-1)+1,c8);
 					judge((this.index-1)-9,c8);
@@ -122,16 +128,17 @@ for(var i = 1 ; i <= 64 ; i ++){
 							del(warehouseArr[d8]);
 						}
 						warehouseArr = [] ;
+						chips[this.index-1].chipNumber = chips[this.index-1].chipNumber + 1 ;
 						chips[this.index-1].style.background = "url(images/chip1/chip"+ (c8 + 1) +".png) 4px 4px no-repeat";
 					}else{
 						warehouseArr = [] ;
 					}
 				}else if((this.index-1 == 8) || (this.index-1 == 16) || (this.index-1 == 24) || (this.index-1 == 32) || (this.index-1 == 40) || (this.index-1 == 48)){
 					// console.log("左6个！");
-					var a8 = chips[this.index-1].style.background;
-					var b8 ;
-					b8 = a8.slice(a8.indexOf("chip")+10,a8.indexOf("chip")+15);
-					var c8 = parseInt(b8);
+					// var a8 = chips[this.index-1].style.background;
+					// var b8 ;
+					// b8 = a8.slice(a8.indexOf("chip")+10,a8.indexOf("chip")+15);
+					var c8 = chips[this.index-1].chipNumber
 					judge((this.index-1)-8,c8);
 					judge((this.index-1)-7,c8);
 					judge((this.index-1)+1,c8);
@@ -142,16 +149,17 @@ for(var i = 1 ; i <= 64 ; i ++){
 							del(warehouseArr[d8]);
 						}
 						warehouseArr = [] ;
+						chips[this.index-1].chipNumber = chips[this.index-1].chipNumber + 1 ;
 						chips[this.index-1].style.background = "url(images/chip1/chip"+ (c8 + 1) +".png) 4px 4px no-repeat";
 					}else{
 						warehouseArr = [] ;
 					}
 				}else if((this.index-1 == 15) || (this.index-1 == 23) || (this.index-1 == 31) || (this.index-1 == 39) || (this.index-1 == 47) || (this.index-1 == 55)){
 					// console.log("右6个！");
-					var a8 = chips[this.index-1].style.background;
-					var b8 ;
-					b8 = a8.slice(a8.indexOf("chip")+10,a8.indexOf("chip")+15);
-					var c8 = parseInt(b8);
+					// var a8 = chips[this.index-1].style.background;
+					// var b8 ;
+					// b8 = a8.slice(a8.indexOf("chip")+10,a8.indexOf("chip")+15);
+					var c8 = chips[this.index-1].chipNumber
 					judge((this.index-1)-9,c8);
 					judge((this.index-1)-8,c8);
 					judge((this.index-1)-1,c8);
@@ -162,16 +170,17 @@ for(var i = 1 ; i <= 64 ; i ++){
 							del(warehouseArr[d8]);
 						}
 						warehouseArr = [] ;
+						chips[this.index-1].chipNumber = chips[this.index-1].chipNumber + 1 ;
 						chips[this.index-1].style.background = "url(images/chip1/chip"+ (c8 + 1) +".png) 4px 4px no-repeat";
 					}else{
 						warehouseArr = [] ;
 					}
 				}else if(this.index-1 == 0){
 					// console.log("左上！");
-					var a8 = chips[this.index-1].style.background;
-					var b8 ;
-					b8 = a8.slice(a8.indexOf("chip")+10,a8.indexOf("chip")+15);
-					var c8 = parseInt(b8);
+					// var a8 = chips[this.index-1].style.background;
+					// var b8 ;
+					// b8 = a8.slice(a8.indexOf("chip")+10,a8.indexOf("chip")+15);
+					var c8 = chips[this.index-1].chipNumber
 					judge((this.index-1)+1,c8);
 					judge((this.index-1)+8,c8);
 					judge((this.index-1)+9,c8);
@@ -180,16 +189,17 @@ for(var i = 1 ; i <= 64 ; i ++){
 							del(warehouseArr[d8]);
 						}
 						warehouseArr = [] ;
+						chips[this.index-1].chipNumber = chips[this.index-1].chipNumber + 1 ;
 						chips[this.index-1].style.background = "url(images/chip1/chip"+ (c8 + 1) +".png) 4px 4px no-repeat";
 					}else{
 						warehouseArr = [] ;
 					}
 				}else if(this.index-1 == 7){
 					// console.log("右上！");
-					var a8 = chips[this.index-1].style.background;
-					var b8 ;
-					b8 = a8.slice(a8.indexOf("chip")+10,a8.indexOf("chip")+15);
-					var c8 = parseInt(b8);
+					// var a8 = chips[this.index-1].style.background;
+					// var b8 ;
+					// b8 = a8.slice(a8.indexOf("chip")+10,a8.indexOf("chip")+15);
+					var c8 = chips[this.index-1].chipNumber
 					judge((this.index-1)-1,c8);
 					judge((this.index-1)+7,c8);
 					judge((this.index-1)+8,c8);
@@ -198,16 +208,17 @@ for(var i = 1 ; i <= 64 ; i ++){
 							del(warehouseArr[d8]);
 						}
 						warehouseArr = [] ;
+						chips[this.index-1].chipNumber = chips[this.index-1].chipNumber + 1 ;
 						chips[this.index-1].style.background = "url(images/chip1/chip"+ (c8 + 1) +".png) 4px 4px no-repeat";
 					}else{
 						warehouseArr = [] ;
 					}
 				}else if(this.index-1 == 56){
 					// console.log("左下！");
-					var a8 = chips[this.index-1].style.background;
-					var b8 ;
-					b8 = a8.slice(a8.indexOf("chip")+10,a8.indexOf("chip")+15);
-					var c8 = parseInt(b8);
+					// var a8 = chips[this.index-1].style.background;
+					// var b8 ;
+					// b8 = a8.slice(a8.indexOf("chip")+10,a8.indexOf("chip")+15);
+					var c8 = chips[this.index-1].chipNumber
 					judge((this.index-1)-8,c8);
 					judge((this.index-1)-7,c8);
 					judge((this.index-1)+1,c8);
@@ -216,16 +227,17 @@ for(var i = 1 ; i <= 64 ; i ++){
 							del(warehouseArr[d8]);
 						}
 						warehouseArr = [] ;
+						chips[this.index-1].chipNumber = chips[this.index-1].chipNumber + 1 ;
 						chips[this.index-1].style.background = "url(images/chip1/chip"+ (c8 + 1) +".png) 4px 4px no-repeat";
 					}else{
 						warehouseArr = [] ;
 					}
 				}else if(this.index-1 == 63){
 					// console.log("右下！");
-					var a8 = chips[this.index-1].style.background;
-					var b8 ;
-					b8 = a8.slice(a8.indexOf("chip")+10,a8.indexOf("chip")+15);
-					var c8 = parseInt(b8);
+					// var a8 = chips[this.index-1].style.background;
+					// var b8 ;
+					// b8 = a8.slice(a8.indexOf("chip")+10,a8.indexOf("chip")+15);
+					var c8 = chips[this.index-1].chipNumber
 					judge((this.index-1)-9,c8);
 					judge((this.index-1)-8,c8);
 					judge((this.index-1)-1,c8);
@@ -234,6 +246,7 @@ for(var i = 1 ; i <= 64 ; i ++){
 							del(warehouseArr[d8]);
 						}
 						warehouseArr = [] ;
+						chips[this.index-1].chipNumber = chips[this.index-1].chipNumber + 1 ;
 						chips[this.index-1].style.background = "url(images/chip1/chip"+ (c8 + 1) +".png) 4px 4px no-repeat";
 					}else{
 						warehouseArr = [] ;
@@ -242,31 +255,37 @@ for(var i = 1 ; i <= 64 ; i ++){
 			}else{
 				console.log("使用道具！");
 				if(iscopy == true){
-					var dd = chips[this.index-1].style.background;
-					var ee ;
-					ee = dd.slice(dd.indexOf("chip")+10,dd.indexOf("chip")+15);
-					var ff = parseInt(ee);
-					nexts[0].style.background = "url(images/chip1/chip"+ ff +".png) 4px 4px no-repeat";
+					// var dd = chips[this.index-1].style.background;
+					// var ee ;
+					// ee = dd.slice(dd.indexOf("chip")+10,dd.indexOf("chip")+15);
+					var c8 = chips[this.index-1].chipNumber ;
+					nexts[0].chipNum = c8 ;
+					nexts[0].style.background = "url(images/chip1/chip"+ c8 +".png) 4px 4px no-repeat";
 					iscopy = false ;
 				}else if(issell == true){
+					chips[this.index-1].chipNumber = 0;
 					chips[this.index-1].style.background = "url() 4px 4px no-repeat";
 					issell = false ;
 					this.isClick = false ;
 				}else if(ismax == true){
+					chips[this.index-1].chipNumber = 12 ;
 					chips[this.index-1].style.background = "url(images/chip1/chip12.png) 4px 4px no-repeat";
 					ismax = false ;
 				}else if(ishundred == true){
+					chips[this.index-1].chipNumber = 7 ;
 					chips[this.index-1].style.background = "url(images/chip1/chip7.png) 4px 4px no-repeat";
 					ishundred = false ;
 				}else if(isthousand == true){
+					chips[this.index-1].chipNumber = 10 ;
 					chips[this.index-1].style.background = "url(images/chip1/chip10.png) 4px 4px no-repeat";
 					isthousand = false ;
 				}else if(ismove == true){
-					var gg = chips[this.index-1].style.background;
-					var hh ;
-					hh = gg.slice(gg.indexOf("chip")+10,gg.indexOf("chip")+15);
-					var ii = parseInt(hh);
-					nexts[0].style.background = "url(images/chip1/chip"+ ii +".png) 4px 4px no-repeat";
+					// var gg = chips[this.index-1].style.background;
+					// var hh ;
+					// hh = gg.slice(gg.indexOf("chip")+10,gg.indexOf("chip")+15);
+					var c8 = chips[this.index-1].chipNumber;
+					chips[this.index-1].chipNumber = 0 ;
+					nexts[0].style.background = "url(images/chip1/chip"+ c8 +".png) 4px 4px no-repeat";
 					chips[this.index-1].style.background = "url() 4px 4px no-repeat";
 					this.isClick = false ;
 					ismove = false ;
@@ -306,14 +325,12 @@ function isCard(){
 	return true ;
 }
 function judge(jNum,jindex){
-	var j8 = chips[jNum].style.background;
-	var k8 ;
-	k8 = j8.slice(j8.indexOf("chip")+10,j8.indexOf("chip")+15);
-	var l8 = parseInt(k8);
+	var l8 = chips[jNum].chipNumber;
 	if(jindex == l8){
 		warehouseArr.push(jNum);
 	}
 }
+
 function del(dNum){
 	chips[dNum].style.background = "url() 4px 4px no-repeat";
 	chips[dNum].isClick = false ;
@@ -338,8 +355,9 @@ next.appendChild(nextVessel);
 var nexts = document.getElementById("nextwrap").getElementsByTagName('div');
 
 for(var n = 0 ; n < nexts.length ; n++){
-	// randomNext();
-	nexts[n].style.background = "url(images/chip1/chip"+ randomNext() +".png) 4px 4px no-repeat";
+	var temporary = randomNext();
+	nexts[n].chipNum = temporary;
+	nexts[n].style.background = "url(images/chip1/chip"+ temporary +".png) 4px 4px no-repeat";
 	// nexts[n].style.background = "url(images/chip1/chip"+ 1 +".png) 4px 4px no-repeat";
 }
 nextwrap.onclick = function (){
@@ -488,16 +506,30 @@ function randomCard(){
 }
 
 var grade = document.getElementById("grade");
+
 grade.onclick = function (){
 	var grades = 0;
 	for(var gra = 0 ; gra < 64 ; gra++){
-		var g64 = chips[gra].style.background;
-		var h64 ;
-		h64 = g64.slice(g64.indexOf("chip")+10,g64.indexOf("chip")+15);
-		var i64 = parseInt(h64);
+		// var g64 = chips[gra].style.background;
+		// var h64 ;
+		// h64 = g64.slice(g64.indexOf("chip")+10,g64.indexOf("chip")+15);
+		var i64 = chips[gra].chipNumber;
 		if(!isNaN(i64)){
 			grades += i64 ;
 		}
 	}
-	grade.innerHTML = "" + grades ;
+	
+	http = new XMLHttpRequest();
+	var url = "num.php";
+	http.open("POST", url, true);
+	http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	http.send("grades="+grades);		
+	http.onreadystatechange = function() {
+		// console.log(1);
+		if(http.readyState == 4 && http.status == 200) {
+			console.log(http.responseText);	
+
+		}
+	}
+	grade.innerHTML = grades; 
 }
