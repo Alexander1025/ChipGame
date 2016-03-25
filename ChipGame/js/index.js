@@ -39,7 +39,7 @@ for(var i = 1 ; i <= 64 ; i ++){
 	chips[i-1].onclick = function (){
 		if(this.isClick == false){
 			// getPosition(this.index);
-			console.log(getPosition(this.index));
+			// console.log(getPosition(this.index));
 			var aa = nexts[0].chipNum;
 			console.log(aa);
 			// var bb ;
@@ -295,19 +295,19 @@ for(var i = 1 ; i <= 64 ; i ++){
 	}
 }
 
-function getPosition (getpos){
-	var a = getpos;
-	if(a > 8){
-		a = a % 8 ;
-	}
-	var b = getpos;
-	var c = 1 ;
-	while(b > 8){
-		b -= 8 ;
-		c++ ;
-	}
-	return {c,a};
-}
+// function getPosition (getpos){
+// 	var a = getpos;
+// 	if(a > 8){
+// 		a = a % 8 ;
+// 	}
+// 	var b = getpos;
+// 	var c = 1 ;
+// 	while(b > 8){
+// 		b -= 8 ;
+// 		c++ ;
+// 	}
+// 	// return {"c":c,"a":a};
+// }
 function isCard(){
 	if(ismove == true){
 		return false ;
